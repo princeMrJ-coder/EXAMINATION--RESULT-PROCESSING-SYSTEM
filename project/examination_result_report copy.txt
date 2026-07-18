@@ -1,0 +1,24 @@
+====================================================================================
+                        ACCRA TECHNICAL UNIVERSITY                                  
+                     EXAMINATION RESULT SUMMARY REPORT                              
+====================================================================================
+
+Student Name             Index Number   CA Score  Exam Score  Total Score Grade   Status    
+------------------------------------------------------------------------------------
+john                     001            30        45          75          B       Pass      
+james                    002            35        38          73          B       Pass      
+ama                      003            28        40          68          C       Pass      
+akua                     004            34        33          67          C       Pass      
+joel                     005            40        28          68          C       Pass      
+ella                     006            30        45          75          B       Pass      
+kim                      007            20        30          50          D       Pass      
+adam                     29             38        29          67          C       Pass      
+roland                   009            30        55          85          A       Pass      
+josh                     010            33        59          92          A       Pass      
+------------------------------------------------------------------------------------
+
+STATISTICAL SUMMARY:
+Total Enrolled Class Size: 10
+Total Passed             : 10
+Total Failed             : 0
+====================================================================================

@@ -1,0 +1,30 @@
+START
+
+​Display the application title window ("EXAMINATION RESULT PROCESSING SYSTEM").
+​Prompt user for the numberOfStudents to process.
+​Initialize tracking arrays/vectors and set passedCount = 0, failedCount = 0.
+
+​Loop through a sequence from 1 up to numberOfStudents: 
+​Input the Student Name and Index Number.
+​Input and validate caScore (Must be 0 \leq \text{caScore} \leq 40).
+​Input and validate examScore (Must be 0 \leq \text{examScore} \leq 60).
+
+​Evaluate totalScore = caScore + examScore.
+
+​Check totalScore against the grading tier to set structural letter values: 
+    ​If score \ge 80: Grade = 'A', Status = 'Pass'
+    ​If score \ge 70: Grade = 'B', Status = 'Pass'
+    ​If score \ge 60: Grade = 'C', Status = 'Pass'
+    ​If score \ge 50: Grade = 'D', Status = 'Pass'
+    ​If score \ge 40: Grade = 'E', Status = 'Pass'
+​Else: Grade = 'F', Status = 'Fail'
+
+​Conditional update: Increment passedCount if status is 'Pass', otherwise increment failedCount.
+
+​Render metrics directly to interface.
+​Open File Connection stream targeted at creating examination_result_report.txt.
+​Write complete class metrics, organized text table header, items array data, and totals overview.
+​Print terminal notification verifying compilation completion.
+
+​Close File Stream
+END

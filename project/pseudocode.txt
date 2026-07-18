@@ -1,0 +1,79 @@
+BEGIN
+    DISPLAY "EXAMINATION RESULT PROCESSING SYSTEM"
+    INITIALIZE totalPassed = 0
+    INITIALIZE totalFailed = 0
+    
+    INPUT numberOfStudents
+    WHILE numberOfStudents <= 0 DO
+        DISPLAY "Invalid count. Re-enter number of students:"
+        INPUT numberOfStudents
+    ENDWHILE
+    
+    INITIALIZE studentList AS ARRAY OF StudentResult OBJECTS
+    
+    FOR i = 0 TO numberOfStudents - 1 DO
+        INPUT studentName, indexNumber
+        
+        // CA Input Validation
+        REPEAT
+            INPUT caScore
+            IF caScore < 0 OR caScore > 40 THEN
+                DISPLAY "Invalid Entry. Enter score between 0 and 40."
+            ENDIF
+        UNTIL caScore >= 0 AND caScore <= 40
+        
+        // Exam Input Validation
+        REPEAT
+            INPUT examScore
+            IF examScore < 0 OR examScore > 60 THEN
+                DISPLAY "Invalid Entry. Enter score between 0 and 60."
+            ENDIF
+        UNTIL examScore >= 0 AND examScore <= 60
+        
+        totalScore = caScore + examScore
+        
+        // Grading Logic
+        IF totalScore >= 80 AND totalScore <= 100 THEN
+            grade = "A"
+            status = "Pass"
+            totalPassed = totalPassed + 1
+        ELSE IF totalScore >= 70 THEN
+            grade = "B"
+            status = "Pass"
+            totalPassed = totalPassed + 1
+        ELSE IF totalScore >= 60 THEN
+            grade = "C"
+            status = "Pass"
+            totalPassed = totalPassed + 1
+        ELSE IF totalScore >= 50 THEN
+            grade = "D"
+            status = "Pass"
+            totalPassed = totalPassed + 1
+        ELSE IF totalScore >= 40 THEN
+            grade = "E"
+            status = "Pass"
+            totalPassed = totalPassed + 1
+        ELSE
+            grade = "F"
+            status = "Fail"
+            totalFailed = totalFailed + 1
+        ENDIF
+        
+        DISPLAY totalScore, grade, status
+    ENDFOR
+    
+    DISPLAY "CLASS SUMMARY"
+    DISPLAY "Total Students:", numberOfStudents
+    DISPLAY "Passed:", totalPassed
+    DISPLAY "Failed:", totalFailed
+    
+    OPEN "examination_result_report.txt" FOR WRITING
+    WRITE Header Titles to File
+    FOR EACH student IN studentList DO
+        WRITE student record properties to file
+    ENDFOR
+    WRITE totalPassed, totalFailed summary to file
+    CLOSE File
+    
+    DISPLAY "Report saved successfully to examination_result_report.txt"
+END

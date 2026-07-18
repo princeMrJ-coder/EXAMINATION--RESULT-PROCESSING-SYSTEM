@@ -1,0 +1,75 @@
+[ Start ]
+    │
+    ▼
+[ Display System Title ]
+    │
+    ▼
+[ Input: numberOfStudents ]
+    │
+    ▼
+[ Initialize Loop Counter: i = 0 ] ───► ( Is i < numberOfStudents? ) ───( No )───► [ Open File Stream ]
+              ▲                                      │                                    │
+              │                                    (Yes)                                  ▼
+              │                                      │                         [ Write Records & Summary ]
+              │                                      ▼                                    │
+              │                          [ Input: studentName,                            ▼
+              │                                indexNumber ]                     [ Display Success Message ]
+              │                                      │                                    │
+              │                                      ▼                                    ▼
+              │                          /─── Enter caScore ───\                       [ End ]
+              │                         │                       │
+              │                         ▼                       ▼
+              │                ( Is caScore < 0       ( Is caScore > 40
+              │                   or Alpha? )            or Alpha? )
+              │                         │                       │
+              │                       (Yes)                   (Yes)
+              │                         │                       │
+              │                         ▼                       ▼
+              │               [ Display Error ]       [ Display Error ]
+              │                         │                       │
+              │                         └───────────┬───────────┘
+              │                                     │
+              │                                     ▼
+              │                            ( Loop back to CA )
+              │                                     │
+              │                                    (No)
+              │                                     │
+              │                                     ▼
+              │                         /─── Enter examScore ───\
+              │                        │                         │
+              │                        ▼                         ▼
+              │               ( Is examScore < 0       ( Is examScore > 60
+              │                   or Alpha? )              or Alpha? )
+              │                        │                         │
+              │                      (Yes)                     (Yes)
+              │                        │                         │
+              │                        ▼                         ▼
+              │              [ Display Error ]         [ Display Error ]
+              │                        │                         │
+              │                        └────────────┬────────────┘
+              │                                     │
+              │                                     ▼
+              │                           ( Loop back to Exam )
+              │                                     │
+              │                                    (No)
+              │                                     │
+              │                                     ▼
+              │                       [ calculateTotal: Score = CA + Exam ]
+              │                                     │
+              │                                     ▼
+              │                       [ assignGrade & Determine Status ]
+              │                                     │
+              │                                     ▼
+              │                       ( Is Status == "Pass"? )
+              │                        /                     \
+              │                     (Yes)                   (No)
+              │                      /                       \
+              │                     ▼                         ▼
+              │             [ totalPassed++ ]         [ totalFailed++ ]
+              │                     \                         /
+              │                      └──────────┬────────────┘
+              │                                 │
+              │                                 ▼
+              │                         [ Display Result ]
+              │                                 │
+              └────────────────────────── [ Increment i ]
